@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宝可梦对战速度计算器</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="calculator">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Pokemon Speed Calculator</p>
+            <h1>宝可梦对战速度计算器</h1>
+          </div>
+          <label class="level-control">
+            <span>等级</span>
+            <input id="level" type="number" min="1" max="100" value="50" />
+          </label>
+        </header>
+
+        <section class="panels" aria-label="速度对比">
+          <article class="panel" data-slot="a">
+            <div class="panel-header">
+              <input class="name-input" id="name-a" value="我方宝可梦" aria-label="我方名称" />
+              <output id="final-a" class="speed-result">0</output>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span>速度种族值</span>
+                <input id="base-a" type="number" min="1" max="255" value="100" />
+              </label>
+              <label>
+                <span>速度个体值</span>
+                <input id="iv-a" type="number" min="0" max="31" value="31" />
+              </label>
+              <label>
+                <span>速度努力值</span>
+                <input id="ev-a" type="range" min="0" max="252" step="4" value="252" />
+                <strong id="ev-value-a">252</strong>
+              </label>
+              <label>
+                <span>性格修正</span>
+                <input id="nature-a" type="number" min="0.9" max="1.1" step="0.1" value="1" />
+              </label>
+              <label>
+                <span>速度能力阶级</span>
+                <input id="stage-a" type="number" min="-6" max="6" step="1" value="0" />
+              </label>
+              <label>
+                <span>道具/场地倍率</span>
+                <select id="multiplier-a">
+                  <option value="1" selected>无 x1</option>
+                  <option value="1.5">讲究围巾 x1.5</option>
+                  <option value="2">顺风/轻装 x2</option>
+                  <option value="0.5">麻痹 x0.5</option>
+                  <option value="0.25">沼泽誓约 x0.25</option>
+                </select>
+              </label>
+            </div>
+          </article>
+
+          <article class="panel" data-slot="b">
+            <div class="panel-header">
+              <input class="name-input" id="name-b" value="对方宝可梦" aria-label="对方名称" />
+              <output id="final-b" class="speed-result">0</output>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span>速度种族值</span>
+                <input id="base-b" type="number" min="1" max="255" value="100" />
+              </label>
+              <label>
+                <span>速度个体值</span>
+                <input id="iv-b" type="number" min="0" max="31" value="31" />
+              </label>
+              <label>
+                <span>速度努力值</span>
+                <input id="ev-b" type="range" min="0" max="252" step="4" value="252" />
+                <strong id="ev-value-b">252</strong>
+              </label>
+              <label>
+                <span>性格修正</span>
+                <input id="nature-b" type="number" min="0.9" max="1.1" step="0.1" value="1" />
+              </label>
+              <label>
+                <span>速度能力阶级</span>
+                <input id="stage-b" type="number" min="-6" max="6" step="1" value="0" />
+              </label>
+              <label>
+                <span>道具/场地倍率</span>
+                <select id="multiplier-b">
+                  <option value="1" selected>无 x1</option>
+                  <option value="1.5">讲究围巾 x1.5</option>
+                  <option value="2">顺风/轻装 x2</option>
+                  <option value="0.5">麻痹 x0.5</option>
+                  <option value="0.25">沼泽誓约 x0.25</option>
+                </select>
+              </label>
+            </div>
+          </article>
+        </section>
+
+        <section class="verdict" aria-live="polite">
+          <h2 id="winner">正在计算...</h2>
+          <p id="details"></p>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
